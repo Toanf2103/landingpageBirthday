@@ -52,5 +52,24 @@ function setData(jsonData){
     }
     document.getElementsByClassName("container")[0].innerHTML=arrayRow.join()
 }
+function checkAudio(){
+     // Lấy đối tượng iframe bằng id
+    var iframe = document.getElementById('iframeAudio');
+
+    // Đợi iframe tải hoàn tất
+    iframe.onload = function() {
+        // Lấy đối tượng audio bên trong iframe
+        var audio = iframe.contentWindow.document.getElementsByTagName('audio')[0];
+
+        // Kiểm tra xem âm nhạc đã mở hay chưa
+        if (audio.paused) {
+        console.log('Âm nhạc đã dừng.');
+        } else {
+        console.log('Âm nhạc đang chạy.');
+        }
+    };
+}
+checkAudio();
+
 
  
